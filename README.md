@@ -1,7 +1,14 @@
 # 仕事で役に立つサンプルをまとめ
 ## Java
 
+1. Java最新版ダウンロード  
+[Download Path](https://www.java.com/ja/download/windows-64bit.jsp)
 
+2. Java環境構築(windows版) パスの設定
+「コントロールパネル」> 「システムとセキュリティ」 > 「システム」 > 「システムの詳細設定」  
+> 「詳細設定」タブ > 「環境変数」 > JAVA_HOMEの設定  
+(変数名) :JAVA_HOME  
+(変数値) :C:\Program Files\Java\jdk1.x.x_xxx  
 
 ## JavaScript
 
