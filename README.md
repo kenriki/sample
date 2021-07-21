@@ -50,6 +50,13 @@ Android環境構築を行っている場合、次は Android Studioのインス�
 5. jquery
 
 
+## TypeScript
+1.
+2. 
+3. 
+4. 
+5. 
+
 ## PHP  
 1. PHPの概要  
 2. テキストと数の操作  
