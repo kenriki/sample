@@ -47,15 +47,76 @@ Android環境構築を行っている場合、次は Android Studioのインス�
 2. JSON
 3. backbone
 4. angular
-5. jquery
 
+
+-----
 
 ## TypeScript
-1.
-2. 
-3. 
-4. 
-5. 
+1. TypeScriptは静的型付けができるJavaScript  
+    > number型, string型, boolean型
+2. どんな値でも格納できるany型
+    > any型を使うときは、よく考えて使う必要
+
+3. その他の型
+    > 他にも型はいろいろある。`「null型」`と`「undefined型」`は、JavaScriptのそれらと同じと思ってもらって問題ない。`「void型」`は関数に戻り値が無いことを示すときに利用する。それから、いわゆる列挙型の`「enum型」`も利用できる。他には`オブジェクト型`と分類される型がある。これには、クラスやインターフェースなどいろいろなものが含まれる。
+4. 「型推論」で型アノテーションの省略  
+*omikuji.ts*
+```typescript
+function playOmikuji(age : number, name: string ) {
+  var kuji = "";
+  if (age === 17) {
+    kuji = "大吉";
+  } else {
+    kuji ="凶";
+  }
+  return name + "さんの運勢は" + kuji + "です";
+}
+
+var age = 17;
+var name = "testさん";
+
+var unsei = playOmikuji(age, name);　// unseiはstring型として解釈される
+```
+5. TypeScriptの「クラス」と「インターフェース」
+   > C#やJavaに近い考え方でクラスを定義して利用できる
+
+```typescript
+class Hello {
+  // メンバー変数
+  public name: string;
+  private _age: number;
+
+  // getter／settter（プロパティ）
+  get age(): number {
+    return this._age;
+  }
+  set age(value: number) {
+    this._age = value;
+  }
+
+  // コンストラクター
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  // メンバーメソッド（パブリック）
+  public say(): string {
+    return this.getHelloString();
+  }
+
+  // メンバーメソッド（プライベート）
+  private getHelloString(): string {
+    return "Hello, " + name + "!";
+  }
+}
+
+var hello = new Hello("testさん");
+hello.age = 17;
+var words = hello.say(); // "Hello , " + name + "!"
+var age = hello.age; // 17
+```
+
+-----------------
 
 ## PHP  
 1. PHPの概要  
