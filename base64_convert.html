@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<input type="text" id="id_1">
+<input type="button" onclick="convert_btoa();" value="エンコード変換">
+<div id="result1"></div>
+
+<input type="text" id="id_2">
+<input type="button" onclick="convert_atob();" value="デコード変換">
+<div id="result2"></div>
+
+<input type="text" id="id_3">
+<input type="button" onclick="convert_btob_ja();" value="日本語含むエンコード変換">
+<div id="result3"></div>
+
+<input type="text" id="id_4">
+<input type="button" onclick="convert_atob_ja();" value="日本語含むデコード変換">
+<div id="result4"></div>
+ 
+<script>
+  function convert_btoa(){
+     var output = window.btoa(document.getElementById("id_1").value)
+     document.getElementById("result1").innerHTML = output;
+  }
+
+  function convert_atob(){
+     var output = window.atob(document.getElementById("id_2").value)
+     document.getElementById("result2").innerHTML = output;
+  }
+
+  function convert_btob_ja(){
+     var output =  window.btoa(unescape(encodeURIComponent(document.getElementById("id_3").value))); 
+     document.getElementById("result3").innerHTML = output;
+  }
+
+  function convert_atob_ja(){
+     var output =  decodeURIComponent(escape(window.atob(document.getElementById("id_4").value))); 
+     document.getElementById("result4").innerHTML = output;
+  }
+</script>
+ 
+</body>
+</html>
