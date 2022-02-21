@@ -5,20 +5,20 @@
 <body>
 
 <input type="text" id="id_1">
-<input type="button" onclick="convert_btoa();" value="エンコード変換">
+<input type="button" onclick="convert_btob_ja();" value="エンコード変換">
 <div id="result1"></div>
 
-<input type="text" id="id_2">
-<input type="button" onclick="convert_atob();" value="デコード変換">
-<div id="result2"></div>
-
 <input type="text" id="id_3">
-<input type="button" onclick="convert_btob_ja();" value="日本語含むエンコード変換">
+<input type="button" onclick="convert_btob_ja();" value="エンコード変換">
 <div id="result3"></div>
 
 <input type="text" id="id_4">
-<input type="button" onclick="convert_atob_ja();" value="日本語含むデコード変換">
+<input type="button" onclick="convert_atob_ja();" value="デコード変換">
 <div id="result4"></div>
+
+<input type="text" id="id_2">
+<input type="button" onclick="convert_atob_ja();" value="デコード変換">
+<div id="result2"></div>
  
 <script>
   function convert_btoa(){
