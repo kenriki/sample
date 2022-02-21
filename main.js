@@ -11,11 +11,9 @@
     app.getJSON = function() {
         "use strict;"
 
-        var result = document.getElementById("ID_TXT_JSON").value;
+        var json = JSON.parse($('.json').val());
+        var result = JSON.stringify(json, null, 4).replace(/^"(.*)"$/, '$1').replace(/\\"/g, '');
+        $('.result').val(result);
 
-        //if ( result.match("\xA5100") {
-        //   result = result.replace("\xA5100", " ");
-        //}
-
-        alert(JSON.stringify(result.replace(/^"(.*)"$/, '$1').replace(/\"/g, ' ')));
+        alert(result);
     }
