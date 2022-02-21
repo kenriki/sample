@@ -17,5 +17,5 @@
         //   result = result.replace("\xA5100", " ");
         //}
 
-        alert(JSON.stringify(result.replace(/\"/g, '\"\"')));
+        alert(JSON.stringify(result.replace(/^"(.*)"$/, '$1').replace(/\"/g, '\"\"')));
     }
