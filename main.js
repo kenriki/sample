@@ -13,9 +13,9 @@
 
         var result = document.getElementById("ID_TXT_JSON").value;
 
-        //  if ( result.match(",") {
-        //     result = result.replace(",", ",\r\n");
-        //  }
+        if ( result.match("\xA5100") {
+           result = result.replace("\xA5100", " ");
+        }
 
-        alert(JSON.stringify(result));
+        alert(JSON.stringify(result,null,"  "));
     }
