@@ -14,15 +14,15 @@ npm install react react-dom
 npm install -D @babel/preset-react
 ```
 
-/sample
-├── node_modules/
-├── package-lock.json
-├── package.json
-└── src
-│   ├── Hello.jsx
-│   ├── app.js
-│   └── index.html
-└── webpack.config.js
+/sample  
+├── node_modules/  
+├── package-lock.json  
+├── package.json  
+└── src  
+│   ├── Hello.jsx  
+│   ├── app.js  
+│   └── index.html  
+└── webpack.config.js  
 
 ## html のテンプレート
 ```index.html
