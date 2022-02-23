@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-    <meta charset="utf-8">
-    <title>exampleApp</title>
+  <meta charset="utf-8">
+  <title>My Engineer Exhibition Wiki</title>
+  <meta name="description"
+    content="エンジニアのためのプログラミング(Java, JavaScript, HTML5, CSS3, Pythonなど)等の情報まとめサイトです。いろいろな情報を共有して、より良い現場ライフになることが狙いです。">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="apple-touch-icon" href="icon.png" />
+  <link rel="stylesheet" href="./css/main.css" type="text/css">
+  <script src="./lib/Utill/main.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+  <!-- ▼ソースコード表示highlight.js ▼-->
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/zenburn.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- ▲ソースコード表示highlight.js ▲-->
 <script defer src="./js/bundle.js"></script></head>
+
 <body>
-    <noscript>
-      <strong>javascriptを有効にしてください</strong>
-    </noscript>
-    <div id="app" />
+  <noscript>
+    <strong>javascriptを有効にしてください</strong>
+  </noscript>
+  <div id="content" />
+  <!-- facebook利用の準備 -->
+  <div id="fb-root"></div>
+  <script>(function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.4";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
+
 </html>
