@@ -193,3 +193,13 @@ $ npm install
 ```
 
 > プロジェクトの依存関係を再インストールする。
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## GithubPageにReactページ表示させる
+> GitHub Pagesは特定なBranchを使って静的なファイルをサービスします。
+したがってbuildフォルダのためだけのBranchを作る必要があります。
+次のコマンドを実行してbuildフォルダだけ新しいBranchにアップロードします。
+
+```vim
+git subtree push --prefix build/ origin gh-pages
+```
