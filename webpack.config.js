@@ -5,7 +5,7 @@ module.exports = {
     mode: "development",
     entry: path.resolve(__dirname, "src/app.js"),
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "build"),
         filename: "./js/bundle.js",
     },
     resolve: {
@@ -34,7 +34,7 @@ module.exports = {
     ],
     devServer: {
         static: {
-            directory: path.resolve(__dirname, "./dist"),
+            directory: path.resolve(__dirname, "./build"),
         }
     }
 };
