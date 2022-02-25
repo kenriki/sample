@@ -85,7 +85,9 @@ h1 {
 }
 
 .css-width {
-    width: 70%;
+    width: 98%;
+    line-height: 1.5;
+    vertical-align: middle;
 }
 
 .css-border-style {
