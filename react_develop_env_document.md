@@ -1,7 +1,7 @@
 
 # Create React Appを使わないReact導入手順
 
-Create React App
+Create React App  
 └ Create React App とは Facrbook が提供している CLI ツールで用意されたテンプレートを元にアプリケーションの雛形を生成してくれるものです。
 
 ```vim
@@ -64,7 +64,7 @@ const Hello = () => <h1>こんにちは！</h1>;
 export default Hello;
 
 ```
-
+## webpack.config.js
 ```webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
