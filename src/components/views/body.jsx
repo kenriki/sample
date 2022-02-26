@@ -11,4 +11,5 @@ class Body extends React.Component {
   }
 }
 
-module.exports = Body;
+//module.exports = Body;
+export default Body;

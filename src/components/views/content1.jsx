@@ -18,7 +18,7 @@ class Content1 extends React.Component {
           </div>
           <hr></hr>
           <div>
-            <a href="./sampleTop.html">技術のまとめページへ</a>
+            <a href="./main.html">技術のまとめページへ</a>
           </div>
           <hr></hr>
         </div>
@@ -27,4 +27,5 @@ class Content1 extends React.Component {
   }
 }
 
-module.exports = Content1;
+//module.exports = Content1;
+export default Content1;

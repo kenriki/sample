@@ -19,4 +19,5 @@ class NewsContent extends React.Component {
   }
 }
 
-module.exports = NewsContent;
+//module.exports = NewsContent;
+export default NewsContent;
