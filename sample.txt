@@ -1,0 +1,18 @@
+https://codepen.io/pen?editors=1010
+
+# html複数 出力 
+
+npm i -D html-webpack-plugin
+
+
+# webpack-cli について
+npm i -D webpack-cli --save-dev
+
+このパッケージは必須ではありませんが、このパッケージを使うとwebpack.config.jsの作成を始めとしてプロジェクトのひな型を作成することができます。
+webpack-cliがバージョン3系の場合、webpack-cli/initのインストールにはバージョンを指定する必要があります。
+
+# webpack-watched-glob-entries-plugin
+npm i -D webpack-watched-glob-entries-plugin
+
+# clean-webpack-plugin
+npm i -D clean-webpack-plugin
