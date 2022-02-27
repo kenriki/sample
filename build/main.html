@@ -11,217 +11,15 @@
 </head>
 
 <body>
-    <a href="./">トップへ</a>
-    <!-- facebook利用の準備 -->
-    <div id="fb-root"></div>
-    <script>(function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.4";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-    <!-- メニュー -->
-    <div class="css-menu-wrap">
-        <ul>
-            <!-- Twitter -->
-            <div class="css-style-top">
-                <a href="https://twitter.com/ricchan_fight?ref_src=twsrc%5Etfw" class="twitter-follow-button"
-                    data-show-count="false">Follow @ricchan_fight</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-            <!-- FB -->
-            <div class="block-left">
-                <div class="fb-like" data-layout="box_count"></div>
-            </div>
-            <!-- LINE -->
-            <div>
-                <div class="line-it-button" data-lang="ja" data-type="like"
-                    data-url="http://kenriki.php.xdomain.jp/doc/" style="display: none;"></div>
-                <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async"
-                    defer="defer"></script>
-            </div>
-            <!-- mixi -->
-            <div data-plugins-type="mixi-favorite" data-service-key="ed840b4edbe74007102de938bd35bb49e15b7507"
-                data-size="medium" data-href="" data-show-faces="false" data-show-count="true" data-show-comment="false"
-                data-width=""></div>
-            <script
-                type="text/javascript">(function (d) { var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//static.mixi.jp/js/plugins.js#lang=ja'; d.getElementsByTagName('head')[0].appendChild(s); })(document);</script>
-            >
-            <a href="http://rikigigasu.blog.fc2.com/">エンジニア備忘録ブログ</a>
-        </ul>
+    <section id="content_menu"></section>
+    <div class="css-content-wrap" style="margin-top: 0px;">
+        <section id="content_main_html5"></section>
     </div>
-    <!-- コンテンツ -->
-    <div class="css-content-wrap">
-        <div class="css-brank-height">
-            <fieldset class="css-width css-border-style">
-                <legend>HTML5</legend>
-                <a name="html"></a>
-                <ul>
-                    <li>metaタグの種類</li>
-                    <li>SEOにおける文章校正</li>
-                    <li>HTML5タグの種類</li>
-                    <li>属性値の命名規則</li>
-                    <li>DOMについて</li>
-                    <li>DOMツリー</li>
-                </ul>
-                <div>
-                    <p>
-                        <a href="#" id="dialog_link" class="ui-state-default ui-corner-all">
-                            <span class="ui-icon ui-icon-newwin"></span>ツール、リンクなど</a>
-                    </p>
-                    <div id="dialog">
-                        <a href="https://validator.w3.org/nu/" target="_blank">Nu HTMLチェッカー</a>
-                    </div>
-                </div>
-            </fieldset>
-        </div>
-        <div class="css-brank-height">
-            <fieldset class="css-width css-border-style">
-                <legend>CSS3</legend>
-                <a name="css"></a>
-                <ul>
-                    <li>セレクタとプロパティと値の関係</li>
-                    <li>セレクタの命名規則</li>
-                </ul>
-            </fieldset>
-        </div>
-        <div class="css-brank-height">
-            <fieldset class="css-width css-border-style">
-                <legend>JavaScript</legend>
-                <a name="javaScript"></a>
-                <ul>
-                    <li>ES2015(ES6)とは</li>
-                    <div class="css-sparator"></div>
-                    <pre>ECMAScriptはJavaScriptの中核仕様を抜き出して標準化したもの
-開発当初のJavascriptは、ブラウザによる独自の拡張が多く、互換性が低かったため、
-Ecma Internationalが中心となりECMAScriptが開発された
-[公式サイト]<a href="http://www.ecma-international.org/ecma-262/6.0/index.html" target="_blank">http://www.ecma-international.org/ecma-262/6.0/index.html</a></pre>
-                    <div class="css-sparator"></div>
-                    <li>ES2015の対応状況</li>
-                    <a href="http://kangax.github.io/compat-table/es6/" target="_blank">参考URL</a>
-                    <div class="css-sparator"></div>
-                    <li>何故ES2015で書くのか</li>
-                    <div class="css-li-bef">
-                        <li>便利な機能、構文が追加され、従来より簡潔かつ明瞭な構文で記述できるようになったから。</li>
-                    </div>
-                    <div class="css-li-bef">
-                        <li>主要な機能、構文を覚える程度なら学習コストはそこまで高くないから。</li>
-                    </div>
-                    <div class="css-li-bef">
-                        <li>フレームワーク等と違ってすぐに廃れるものではないから。</li>
-                    </div>
-                    <div class="css-li-bef">
-                        <li>ES2015で記述されているコードを理解するため。</li>
-                    </div>
-                    <div class="css-sparator"></div>
-                    <li>ES2015で追加された機能、構文</li>
-                    <div class="css-sparator"></div>
-                    <li>DOM動的生成</li>
-                    <div class="css-sparator"></div>
-                    <pre><code><a href="https://developer.mozilla.org/ja/docs/Web/API/Document/createElement" target="_blank">document.createElement について</a>(外部URL)
-var element = document.createElement(&quot;div&quot;); 
-element.id = &quot;id&quot;; 
-element.innerHTML = &quot;hogehoge&quot;; 
-element.style.backgroundColor = &#039;red&#039;; 
-var objBody = document.getElementsByTagName(&quot;body&quot;).item(0); 
-objBody.appendChild(element); 
-// body要素にdivエレメントを追加 
-</code></pre>
-                    <div class="css-sparator"></div>
-                    <li>CSSのclassを差し替え</li>
-                    <div class="css-sparator"></div>
-                    <li>JSONの取り扱い</li>
-                    <div class="css-sparator"></div>
-                    <pre>
-<code>JSON.stringify({ "test1" : "text",
-"test3" : "text",
-"test4" : {"a1" : "textA-1","a2" : "textA-2"}} );</code>
-<code>var json = { "test1" : "text", 
-             "test2" : "text", 
-             "test3" : "text", 
-             "test4" : { 
-                     "a1" : "textA-1",
-                     "a2" : "textA-2"
-             }
-};</code></pre>
-                    <div>
-                        <input type="text" class="json" placeholder='{"key1":"テキスト1"}'>
-                    </div>
-                    <div>
-                        <button id="ID_BTN_JSON">JSON整形</button>
-                    </div>
-                    <div>
-                        <textarea class="result" rows="10" cols="70" placeholder='{"key1":"テキスト1"}'></textarea>
-                    </div>
-                    <div class="css-sparator"></div>
-                    <h2>Base64変換</h2>
-                    <input type="text" id="id_1">
-                    <input type="button" onclick="convert_btob_ja('id_1','result1');" value="エンコード変換">
-                    <div id="result1"></div>
-
-                    <input type="text" id="id_3">
-                    <input type="button" onclick="convert_btob_ja('id_3','result3');" value="エンコード変換">
-                    <div id="result3"></div>
-
-                    <input type="text" id="id_4">
-                    <input type="button" onclick="convert_atob_ja('id_4','result4');" value="デコード変換">
-                    <div id="result4"></div>
-
-                    <input type="text" id="id_2">
-                    <input type="button" onclick="convert_atob_ja('id_2','result2');" value="デコード変換">
-                    <div id="result2"></div>
-
-                    <div class="css-sparator"></div>
-                    <h2>JavaScriptの関数種類</h2>
-                    <li>無名関数</li>
-                    <div class="css-sparator"></div>
-                    <li>即時関数</li>
-                    <div class="css-sparator"></div>
-                    <li>クロージャ</li>
-                    <div class="css-sparator"></div>
-                    <h2>各ライブラリ、フレームワーク</h2>
-                    <li>JQuery、JqueyUI</li>
-                    <div class="css-sparator"></div>
-                    <pre>[公式サイト]<a href="https://code.jquery.com/" target="_blank">https://code.jquery.com/</a></pre>
-                    <div class="css-sparator"></div>
-                    <li>Angular JS</li>
-                    <div class="css-sparator"></div>
-                    <pre>[公式サイト]<a href="https://angular.jp/" target="_blank">https://angular.jp/</a></pre>
-                    <li>knock out JS</li>
-                    <div class="css-sparator"></div>
-                    <pre>[公式サイト]<a href="http://kojs.sukobuto.com/docs/introduction" target="_blank">http://kojs.sukobuto.com/docs/introduction</a></pre>
-                    <li>i18next : サイトの国際化対応</li>
-                    <div class="css-sparator"></div>
-                    <pre>[公式サイト]<a href="https://www.i18next.com/" target="_blank">https://www.i18next.com/</a></pre>
-                    <li>npm JS</li>
-                    <div class="css-sparator"></div>
-                    <pre>[公式サイト]<a href="https://docs.npmjs.com/" target="_blank">https://docs.npmjs.com/</a></pre>
-                </ul>
-                <p>&nbsp;</p>
-            </fieldset>
-        </div>
-        <div class="css-brank-height">
-            <fieldset class="css-width css-border-style">
-                <legend>JAVA</legend>
-                <a name="java"></a>
-                <ul>
-                    <li>フレームワーク種類</li>
-                    <div class="css-sparator"></div>
-                    <div class="css-li-bef">
-                        <li>SAStruts（Super Agile Struts）</li>
-                    </div>
-                    <p>SAStrutsは基本はJavaとTomcatがインストールされていれば開発できますが、Eclipseが導入されているとより簡易に開発することができます。 </p>
-                    <a href="http://sastruts.seasar.org/sastrutsplugin.html">SAStruts プラグイン公式</a>
-                    <div class="css-sparator"></div>
-                    <div class="css-li-bef">
-                        <li>Spring MVC</li>
-                    </div>
-                    <a href="https://projects.spring.io/spring-framework/">Spring プラグイン公式</a>
-                    <div class="css-sparator"></div>
-                </ul>
-            </fieldset>
-        </div>
+    <div class="css-content-wrap" style="margin-top: 600px;">
+        <section id="content_main_js"></section>
+    </div>
+    <div class="css-content-wrap" style="margin-top: 2500px;">
+        <section id="content_main_java"></section>
     </div>
     <!-- Twiiter -->
     <div class="css-content-right-wrap">
@@ -229,46 +27,20 @@ objBody.appendChild(element);
             href="https://twitter.com/ricchan_fight?ref_src=twsrc%5Etfw">Tweets by ricchan_fight</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+    <script src="./components/main/index.bundle.js"></script>
+    <script src="./components/menu/index.bundle.js"></script>
+    <script src="./components/main_jsPage/index.bundle.js"></script>
+    <script src="./components/main_javaPage/index.bundle.js"></script>
     <script src="./js/main.bundle.js"></script>
     <!-- ▼ソースコード表示highlight.js ▼-->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/zenburn.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <!-- ▲ソースコード表示highlight.js ▲-->
-    <script>
-        document.addEventListener("DOMContentLoaded", function (event) {
-            "use strict";
 
-            document.getElementById("ID_BTN_JSON").addEventListener("click", app.getJSON, false);
-        });
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
 
-        var app = {};
-
-        app.getJSON = function () {
-            "use strict;"
-
-            var json = JSON.parse($('.json').val());
-            var result = JSON.stringify(json, null, 4).replace(/^"(.*)"$/, '$1').replace(/\\"/g, '');
-            $('.result').val(result);
-
-            alert(result);
-        }
-
-        function convert_btob_ja(ele1, result) {
-            "use strict;"
-            var output = window.btoa(unescape(encodeURIComponent(document.getElementById(ele1).value)));
-            document.getElementById(result).innerHTML = output;
-        }
-
-        function convert_atob_ja(ele1, result) {
-            "use strict;"
-            var output = decodeURIComponent(escape(window.atob(document.getElementById(ele1).value)));
-            document.getElementById(result).innerHTML = output;
-        }
-
-    </script>
-<script defer src="/./js/main.bundle.js"></script></body>
+</body>
 
 </html>

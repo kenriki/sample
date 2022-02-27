@@ -20,6 +20,14 @@ pre code br {
     display: none;
 }
 
+.blockScreenOff {
+    display: none;
+}
+
+.json {
+    background: rgb(206, 219, 18);
+}
+
 .css-menu-wrap {
    position: absolute;
    border : 1px solid rgb(29, 29, 29);

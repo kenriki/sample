@@ -4,10 +4,12 @@ var React = require('react');
 class Header extends React.Component {
   render() {
     return (
-      <header>
-        <h1>My Engineer Exhibition Wiki</h1>
-        <hr />
-      </header>
+      <>
+        <header>
+          <h1>My Engineer Exhibition Wiki</h1>
+          <hr />
+        </header>
+      </>
     );
   }
 }

@@ -1,30 +1,42 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-    "use strict";
 
-    document.getElementById("ID_BTN_JSON").addEventListener("click", app.getJSON, false);
-});
 
-var app = {};
+const mainApp = mainApp || {
+    init: function () {
+        document.addEventListener("DOMContentLoaded", function (event) {
+            "use strict";
 
-app.getJSON = function () {
-    "use strict;"
+            document.getElementById("ID_BTN_JSON").addEventListener("click", app.getJSON, false);
+            document.getElementById("id_convert_btob_ja").addEventListener("click", convert_btob_ja, false);
+            document.getElementById("id_convert_atob_ja").addEventListener("click", convert_atob_ja, false);
+        });
 
-    var json = JSON.parse($('.json').val());
-    var result = JSON.stringify(json, null, 4).replace(/^"(.*)"$/, '$1').replace(/\\"/g, '');
-    $('.result').val(result);
+        var app = {};
 
-    alert(result);
-}
+        app.getJSON = function () {
+            "use strict;"
 
-function convert_btob_ja(ele1, result) {
-    "use strict;"
-    var output = window.btoa(unescape(encodeURIComponent(document.getElementById(ele1).value)));
-    document.getElementById(result).innerHTML = output;
-}
+            var json = JSON.parse($('.json').val());
+            var result = JSON.stringify(json, null, 4).replace(/^"(.*)"$/, '$1').replace(/\\"/g, '');
+            $('.result').val(result);
 
-function convert_atob_ja(ele1, result) {
-    "use strict;"
-    var output = decodeURIComponent(escape(window.atob(document.getElementById(ele1).value)));
-    document.getElementById(result).innerHTML = output;
-}
+            alert(result);
+        }
 
+        function convert_btob_ja() {
+            "use strict;"
+            var encodedData = window.btoa(unescape(encodeURIComponent(document.getElementById('id_1').value)));
+            document.getElementById('result1').innerHTML = encodedData;
+        }
+
+        function convert_atob_ja() {
+            "use strict;"
+            var decodedData = decodeURIComponent(escape(window.atob(document.getElementById('id_2').value)))
+            document.getElementById('result2').innerHTML = decodedData;
+        }
+        
+
+        
+    }
+};
+
+window.onload = mainApp.init();
