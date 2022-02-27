@@ -3175,9 +3175,13 @@ var MenuContent1 = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return React.createElement(React.Fragment, null, React.createElement("div", {
         className: "css-menu-wrap"
-      }, React.createElement("a", {
+      }, React.createElement("div", null, React.createElement("a", {
+        href: "https://www.slideshare.net/secret/1BPwN3dsFo5yjo"
+      }, "ReactJS\u958B\u767A\u5C0E\u5165\u8CC7\u6599")), React.createElement("div", null, React.createElement("a", {
+        href: "https://qiita.com/RIKIgigasu"
+      }, "Qiita\u306E\u30DA\u30FC\u30B8\u3078")), React.createElement("div", null, React.createElement("a", {
         href: "http://rikigigasu.blog.fc2.com/"
-      }, "\u30A8\u30F3\u30B8\u30CB\u30A2\u5099\u5FD8\u9332\u30D6\u30ED\u30B0"), React.createElement("div", null, React.createElement("a", {
+      }, "\u30A8\u30F3\u30B8\u30CB\u30A2\u5099\u5FD8\u9332\u30D6\u30ED\u30B0")), React.createElement("div", null, React.createElement("a", {
         href: "https://twitter.com/ricchan_fight?ref_src=twsrc%5Etfw",
         className: "twitter-follow-button",
         "data-show-count": "false"
