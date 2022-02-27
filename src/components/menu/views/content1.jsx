@@ -6,7 +6,15 @@ class MenuContent1 extends React.Component {
     return (
       <>
         <div className="css-menu-wrap">
-          <a href="http://rikigigasu.blog.fc2.com/">エンジニア備忘録ブログ</a>
+          <div>
+            <a href="https://www.slideshare.net/secret/1BPwN3dsFo5yjo">ReactJS開発導入資料</a>
+          </div>
+          <div>
+            <a href="https://qiita.com/RIKIgigasu">Qiitaのページへ</a>
+          </div>
+          <div>
+            <a href="http://rikigigasu.blog.fc2.com/">エンジニア備忘録ブログ</a>
+          </div>
           <div>
             <a href="https://twitter.com/ricchan_fight?ref_src=twsrc%5Etfw" className="twitter-follow-button"
               data-show-count="false">Follow @ricchan_fight</a>
