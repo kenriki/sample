@@ -145,7 +145,7 @@ var age = hello.age; // 17
 ## Base64変換
 ![image](https://user-images.githubusercontent.com/19541785/148670383-99810817-1cc2-480b-9a53-53af6879e11a.png)
 
-[https://kenriki.github.io/sample/base64_convert.html](https://kenriki.github.io/sample/base64_convert.html)
+[https://kenriki.github.io/sample/](https://kenriki.github.io/sample/)
 
 
 
