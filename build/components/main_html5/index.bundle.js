@@ -3177,14 +3177,14 @@ var ContentArea1 = /*#__PURE__*/function (_React$Component) {
         }
       }, React.createElement("div", null, React.createElement("fieldset", {
         className: "css-width css-border-style"
-      }, React.createElement("legend", null, "HTML5"), React.createElement("a", {
+      }, React.createElement("legend", null, "HTML5\u306B\u3064\u3044\u3066"), React.createElement("a", {
         name: "html"
       }), React.createElement("ul", null, React.createElement("li", null, "meta\u30BF\u30B0\u306E\u7A2E\u985E"), React.createElement("li", null, "SEO\u306B\u304A\u3051\u308B\u6587\u7AE0\u6821\u6B63"), React.createElement("li", null, "HTML5\u30BF\u30B0\u306E\u7A2E\u985E"), React.createElement("li", null, "\u5C5E\u6027\u5024\u306E\u547D\u540D\u898F\u5247"), React.createElement("li", null, "DOM\u306B\u3064\u3044\u3066"), React.createElement("li", null, "DOM\u30C4\u30EA\u30FC")), React.createElement("hr", null), React.createElement("div", null, React.createElement("h3", null, "\u4FBF\u5229\u30C4\u30FC\u30EB"), React.createElement("a", {
         href: "https://validator.w3.org/nu/",
         target: "_blank"
       }, "Nu HTML\u30C1\u30A7\u30C3\u30AB\u30FC")))), React.createElement("hr", null), React.createElement("div", null, React.createElement("fieldset", {
         className: "css-width css-border-style"
-      }, React.createElement("legend", null, "CSS3"), React.createElement("a", {
+      }, React.createElement("legend", null, "CSS3\u306B\u3064\u3044\u3066"), React.createElement("a", {
         name: "css"
       }), React.createElement("ul", null, React.createElement("li", null, "\u30BB\u30EC\u30AF\u30BF\u3068\u30D7\u30ED\u30D1\u30C6\u30A3\u3068\u5024\u306E\u95A2\u4FC2"), React.createElement("li", null, "\u30BB\u30EC\u30AF\u30BF\u306E\u547D\u540D\u898F\u5247"))))));
     }

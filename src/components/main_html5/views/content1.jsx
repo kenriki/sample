@@ -8,7 +8,7 @@ class ContentArea1 extends React.Component {
         <div style={{ textAlign: "left" }}>
           <div>
             <fieldset className="css-width css-border-style">
-              <legend>HTML5</legend>
+              <legend>HTML5について</legend>
               <a name="html"></a>
               <ul>
                 <li>metaタグの種類</li>
@@ -28,7 +28,7 @@ class ContentArea1 extends React.Component {
           <hr></hr>
           <div>
             <fieldset className="css-width css-border-style">
-              <legend>CSS3</legend>
+              <legend>CSS3について</legend>
               <a name="css"></a>
               <ul>
                 <li>セレクタとプロパティと値の関係</li>
