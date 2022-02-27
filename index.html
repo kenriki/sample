@@ -9,13 +9,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="apple-touch-icon" href="icon.png" />
   <link rel="stylesheet" href="./css/main.css" type="text/css">
-<script defer src="/./js/main.bundle.js"></script></head>
+  
+<script defer src="./components/main_html5/index.bundle.js"></script><script defer src="./components/main_javaPage/index.bundle.js"></script><script defer src="./components/main_jsPage/index.bundle.js"></script><script defer src="./components/menu/index.bundle.js"></script><script defer src="./components/top/index.bundle.js"></script><script defer src="./js/main.bundle.js"></script></head>
 
 <body>
   <noscript>
     <strong>javascriptを有効にしてください</strong>
   </noscript>
-  <div id="content" />
+  <section id="content"></section>
   <!-- facebook利用の準備 -->
   <div id="fb-root"></div>
   <script>(function (d, s, id) {
@@ -25,14 +26,8 @@
       js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.4";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="./js/main.bundle.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
-  <!-- ▼ソースコード表示highlight.js ▼-->
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/zenburn.min.css" />
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <!-- ▲ソースコード表示highlight.js ▲-->
+
+  <script src="./components/top/index.bundle.js"></script>
 </body>
 
 </html>
