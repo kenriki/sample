@@ -3176,6 +3176,8 @@ var MenuContent1 = /*#__PURE__*/function (_React$Component) {
       return React.createElement(React.Fragment, null, React.createElement("div", {
         className: "css-menu-wrap"
       }, React.createElement("div", null, React.createElement("a", {
+        href: "https://www.slideshare.net/secret/sg65BRa2DltGze"
+      }, "Python\u958B\u767A\u74B0\u5883\u5C0E\u5165\u8CC7\u6599")), React.createElement("div", null, React.createElement("a", {
         href: "https://www.slideshare.net/secret/1BPwN3dsFo5yjo"
       }, "ReactJS\u958B\u767A\u5C0E\u5165\u8CC7\u6599")), React.createElement("div", null, React.createElement("a", {
         href: "https://qiita.com/RIKIgigasu"
