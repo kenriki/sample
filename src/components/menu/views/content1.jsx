@@ -7,6 +7,9 @@ class MenuContent1 extends React.Component {
       <>
         <div className="css-menu-wrap">
           <div>
+            <a href="https://www.slideshare.net/secret/sg65BRa2DltGze">Python開発環境導入資料</a>
+          </div>
+          <div>
             <a href="https://www.slideshare.net/secret/1BPwN3dsFo5yjo">ReactJS開発導入資料</a>
           </div>
           <div>
