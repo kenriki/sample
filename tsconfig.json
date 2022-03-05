@@ -32,7 +32,8 @@
         "pretty": true,
         "removeComments": true,
         "sourceMap": true,
-        "typeRoots": ["src/types", "node_modules/@types"]
+        "typeRoots": ["src/types", "node_modules/@types"],
+        "strictPropertyInitialization": false,
     },
     "include": [
         "src/**/*",
