@@ -220,6 +220,1023 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react/cjs/react-jsx-runtime.development.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/react/cjs/react-jsx-runtime.development.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+if (true) {
+  (function () {
+    'use strict';
+
+    var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+    var _assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+
+    var REACT_ELEMENT_TYPE = 0xeac7;
+    var REACT_PORTAL_TYPE = 0xeaca;
+    exports.Fragment = 0xeacb;
+    var REACT_STRICT_MODE_TYPE = 0xeacc;
+    var REACT_PROFILER_TYPE = 0xead2;
+    var REACT_PROVIDER_TYPE = 0xeacd;
+    var REACT_CONTEXT_TYPE = 0xeace;
+    var REACT_FORWARD_REF_TYPE = 0xead0;
+    var REACT_SUSPENSE_TYPE = 0xead1;
+    var REACT_SUSPENSE_LIST_TYPE = 0xead8;
+    var REACT_MEMO_TYPE = 0xead3;
+    var REACT_LAZY_TYPE = 0xead4;
+    var REACT_BLOCK_TYPE = 0xead9;
+    var REACT_SERVER_BLOCK_TYPE = 0xeada;
+    var REACT_FUNDAMENTAL_TYPE = 0xead5;
+    var REACT_SCOPE_TYPE = 0xead7;
+    var REACT_OPAQUE_ID_TYPE = 0xeae0;
+    var REACT_DEBUG_TRACING_MODE_TYPE = 0xeae1;
+    var REACT_OFFSCREEN_TYPE = 0xeae2;
+    var REACT_LEGACY_HIDDEN_TYPE = 0xeae3;
+
+    if (typeof Symbol === 'function' && Symbol["for"]) {
+      var symbolFor = Symbol["for"];
+      REACT_ELEMENT_TYPE = symbolFor('react.element');
+      REACT_PORTAL_TYPE = symbolFor('react.portal');
+      exports.Fragment = symbolFor('react.fragment');
+      REACT_STRICT_MODE_TYPE = symbolFor('react.strict_mode');
+      REACT_PROFILER_TYPE = symbolFor('react.profiler');
+      REACT_PROVIDER_TYPE = symbolFor('react.provider');
+      REACT_CONTEXT_TYPE = symbolFor('react.context');
+      REACT_FORWARD_REF_TYPE = symbolFor('react.forward_ref');
+      REACT_SUSPENSE_TYPE = symbolFor('react.suspense');
+      REACT_SUSPENSE_LIST_TYPE = symbolFor('react.suspense_list');
+      REACT_MEMO_TYPE = symbolFor('react.memo');
+      REACT_LAZY_TYPE = symbolFor('react.lazy');
+      REACT_BLOCK_TYPE = symbolFor('react.block');
+      REACT_SERVER_BLOCK_TYPE = symbolFor('react.server.block');
+      REACT_FUNDAMENTAL_TYPE = symbolFor('react.fundamental');
+      REACT_SCOPE_TYPE = symbolFor('react.scope');
+      REACT_OPAQUE_ID_TYPE = symbolFor('react.opaque.id');
+      REACT_DEBUG_TRACING_MODE_TYPE = symbolFor('react.debug_trace_mode');
+      REACT_OFFSCREEN_TYPE = symbolFor('react.offscreen');
+      REACT_LEGACY_HIDDEN_TYPE = symbolFor('react.legacy_hidden');
+    }
+
+    var MAYBE_ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+    var FAUX_ITERATOR_SYMBOL = '@@iterator';
+
+    function getIteratorFn(maybeIterable) {
+      if (maybeIterable === null || _typeof(maybeIterable) !== 'object') {
+        return null;
+      }
+
+      var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+
+      if (typeof maybeIterator === 'function') {
+        return maybeIterator;
+      }
+
+      return null;
+    }
+
+    var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+
+    function error(format) {
+      {
+        for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+          args[_key2 - 1] = arguments[_key2];
+        }
+
+        printWarning('error', format, args);
+      }
+    }
+
+    function printWarning(level, format, args) {
+      {
+        var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+        var stack = ReactDebugCurrentFrame.getStackAddendum();
+
+        if (stack !== '') {
+          format += '%s';
+          args = args.concat([stack]);
+        }
+
+        var argsWithFormat = args.map(function (item) {
+          return '' + item;
+        });
+        argsWithFormat.unshift('Warning: ' + format);
+        Function.prototype.apply.call(console[level], console, argsWithFormat);
+      }
+    }
+
+    var enableScopeAPI = false;
+
+    function isValidElementType(type) {
+      if (typeof type === 'string' || typeof type === 'function') {
+        return true;
+      }
+
+      if (type === exports.Fragment || type === REACT_PROFILER_TYPE || type === REACT_DEBUG_TRACING_MODE_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_LEGACY_HIDDEN_TYPE || enableScopeAPI) {
+        return true;
+      }
+
+      if (_typeof(type) === 'object' && type !== null) {
+        if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_BLOCK_TYPE || type[0] === REACT_SERVER_BLOCK_TYPE) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    function getWrappedName(outerType, innerType, wrapperName) {
+      var functionName = innerType.displayName || innerType.name || '';
+      return outerType.displayName || (functionName !== '' ? wrapperName + "(" + functionName + ")" : wrapperName);
+    }
+
+    function getContextName(type) {
+      return type.displayName || 'Context';
+    }
+
+    function getComponentName(type) {
+      if (type == null) {
+        return null;
+      }
+
+      {
+        if (typeof type.tag === 'number') {
+          error('Received an unexpected object in getComponentName(). ' + 'This is likely a bug in React. Please file an issue.');
+        }
+      }
+
+      if (typeof type === 'function') {
+        return type.displayName || type.name || null;
+      }
+
+      if (typeof type === 'string') {
+        return type;
+      }
+
+      switch (type) {
+        case exports.Fragment:
+          return 'Fragment';
+
+        case REACT_PORTAL_TYPE:
+          return 'Portal';
+
+        case REACT_PROFILER_TYPE:
+          return 'Profiler';
+
+        case REACT_STRICT_MODE_TYPE:
+          return 'StrictMode';
+
+        case REACT_SUSPENSE_TYPE:
+          return 'Suspense';
+
+        case REACT_SUSPENSE_LIST_TYPE:
+          return 'SuspenseList';
+      }
+
+      if (_typeof(type) === 'object') {
+        switch (type.$$typeof) {
+          case REACT_CONTEXT_TYPE:
+            var context = type;
+            return getContextName(context) + '.Consumer';
+
+          case REACT_PROVIDER_TYPE:
+            var provider = type;
+            return getContextName(provider._context) + '.Provider';
+
+          case REACT_FORWARD_REF_TYPE:
+            return getWrappedName(type, type.render, 'ForwardRef');
+
+          case REACT_MEMO_TYPE:
+            return getComponentName(type.type);
+
+          case REACT_BLOCK_TYPE:
+            return getComponentName(type._render);
+
+          case REACT_LAZY_TYPE:
+            {
+              var lazyComponent = type;
+              var payload = lazyComponent._payload;
+              var init = lazyComponent._init;
+
+              try {
+                return getComponentName(init(payload));
+              } catch (x) {
+                return null;
+              }
+            }
+        }
+      }
+
+      return null;
+    }
+
+    var disabledDepth = 0;
+    var prevLog;
+    var prevInfo;
+    var prevWarn;
+    var prevError;
+    var prevGroup;
+    var prevGroupCollapsed;
+    var prevGroupEnd;
+
+    function disabledLog() {}
+
+    disabledLog.__reactDisabledLog = true;
+
+    function disableLogs() {
+      {
+        if (disabledDepth === 0) {
+          prevLog = console.log;
+          prevInfo = console.info;
+          prevWarn = console.warn;
+          prevError = console.error;
+          prevGroup = console.group;
+          prevGroupCollapsed = console.groupCollapsed;
+          prevGroupEnd = console.groupEnd;
+          var props = {
+            configurable: true,
+            enumerable: true,
+            value: disabledLog,
+            writable: true
+          };
+          Object.defineProperties(console, {
+            info: props,
+            log: props,
+            warn: props,
+            error: props,
+            group: props,
+            groupCollapsed: props,
+            groupEnd: props
+          });
+        }
+
+        disabledDepth++;
+      }
+    }
+
+    function reenableLogs() {
+      {
+        disabledDepth--;
+
+        if (disabledDepth === 0) {
+          var props = {
+            configurable: true,
+            enumerable: true,
+            writable: true
+          };
+          Object.defineProperties(console, {
+            log: _assign({}, props, {
+              value: prevLog
+            }),
+            info: _assign({}, props, {
+              value: prevInfo
+            }),
+            warn: _assign({}, props, {
+              value: prevWarn
+            }),
+            error: _assign({}, props, {
+              value: prevError
+            }),
+            group: _assign({}, props, {
+              value: prevGroup
+            }),
+            groupCollapsed: _assign({}, props, {
+              value: prevGroupCollapsed
+            }),
+            groupEnd: _assign({}, props, {
+              value: prevGroupEnd
+            })
+          });
+        }
+
+        if (disabledDepth < 0) {
+          error('disabledDepth fell below zero. ' + 'This is a bug in React. Please file an issue.');
+        }
+      }
+    }
+
+    var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
+    var prefix;
+
+    function describeBuiltInComponentFrame(name, source, ownerFn) {
+      {
+        if (prefix === undefined) {
+          try {
+            throw Error();
+          } catch (x) {
+            var match = x.stack.trim().match(/\n( *(at )?)/);
+            prefix = match && match[1] || '';
+          }
+        }
+
+        return '\n' + prefix + name;
+      }
+    }
+
+    var reentry = false;
+    var componentFrameCache;
+    {
+      var PossiblyWeakMap = typeof WeakMap === 'function' ? WeakMap : Map;
+      componentFrameCache = new PossiblyWeakMap();
+    }
+
+    function describeNativeComponentFrame(fn, construct) {
+      if (!fn || reentry) {
+        return '';
+      }
+
+      {
+        var frame = componentFrameCache.get(fn);
+
+        if (frame !== undefined) {
+          return frame;
+        }
+      }
+      var control;
+      reentry = true;
+      var previousPrepareStackTrace = Error.prepareStackTrace;
+      Error.prepareStackTrace = undefined;
+      var previousDispatcher;
+      {
+        previousDispatcher = ReactCurrentDispatcher.current;
+        ReactCurrentDispatcher.current = null;
+        disableLogs();
+      }
+
+      try {
+        if (construct) {
+          var Fake = function Fake() {
+            throw Error();
+          };
+
+          Object.defineProperty(Fake.prototype, 'props', {
+            set: function set() {
+              throw Error();
+            }
+          });
+
+          if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === 'object' && Reflect.construct) {
+            try {
+              Reflect.construct(Fake, []);
+            } catch (x) {
+              control = x;
+            }
+
+            Reflect.construct(fn, [], Fake);
+          } else {
+            try {
+              Fake.call();
+            } catch (x) {
+              control = x;
+            }
+
+            fn.call(Fake.prototype);
+          }
+        } else {
+          try {
+            throw Error();
+          } catch (x) {
+            control = x;
+          }
+
+          fn();
+        }
+      } catch (sample) {
+        if (sample && control && typeof sample.stack === 'string') {
+          var sampleLines = sample.stack.split('\n');
+          var controlLines = control.stack.split('\n');
+          var s = sampleLines.length - 1;
+          var c = controlLines.length - 1;
+
+          while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
+            c--;
+          }
+
+          for (; s >= 1 && c >= 0; s--, c--) {
+            if (sampleLines[s] !== controlLines[c]) {
+              if (s !== 1 || c !== 1) {
+                do {
+                  s--;
+                  c--;
+
+                  if (c < 0 || sampleLines[s] !== controlLines[c]) {
+                    var _frame = '\n' + sampleLines[s].replace(' at new ', ' at ');
+
+                    {
+                      if (typeof fn === 'function') {
+                        componentFrameCache.set(fn, _frame);
+                      }
+                    }
+                    return _frame;
+                  }
+                } while (s >= 1 && c >= 0);
+              }
+
+              break;
+            }
+          }
+        }
+      } finally {
+        reentry = false;
+        {
+          ReactCurrentDispatcher.current = previousDispatcher;
+          reenableLogs();
+        }
+        Error.prepareStackTrace = previousPrepareStackTrace;
+      }
+
+      var name = fn ? fn.displayName || fn.name : '';
+      var syntheticFrame = name ? describeBuiltInComponentFrame(name) : '';
+      {
+        if (typeof fn === 'function') {
+          componentFrameCache.set(fn, syntheticFrame);
+        }
+      }
+      return syntheticFrame;
+    }
+
+    function describeFunctionComponentFrame(fn, source, ownerFn) {
+      {
+        return describeNativeComponentFrame(fn, false);
+      }
+    }
+
+    function shouldConstruct(Component) {
+      var prototype = Component.prototype;
+      return !!(prototype && prototype.isReactComponent);
+    }
+
+    function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
+      if (type == null) {
+        return '';
+      }
+
+      if (typeof type === 'function') {
+        {
+          return describeNativeComponentFrame(type, shouldConstruct(type));
+        }
+      }
+
+      if (typeof type === 'string') {
+        return describeBuiltInComponentFrame(type);
+      }
+
+      switch (type) {
+        case REACT_SUSPENSE_TYPE:
+          return describeBuiltInComponentFrame('Suspense');
+
+        case REACT_SUSPENSE_LIST_TYPE:
+          return describeBuiltInComponentFrame('SuspenseList');
+      }
+
+      if (_typeof(type) === 'object') {
+        switch (type.$$typeof) {
+          case REACT_FORWARD_REF_TYPE:
+            return describeFunctionComponentFrame(type.render);
+
+          case REACT_MEMO_TYPE:
+            return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn);
+
+          case REACT_BLOCK_TYPE:
+            return describeFunctionComponentFrame(type._render);
+
+          case REACT_LAZY_TYPE:
+            {
+              var lazyComponent = type;
+              var payload = lazyComponent._payload;
+              var init = lazyComponent._init;
+
+              try {
+                return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
+              } catch (x) {}
+            }
+        }
+      }
+
+      return '';
+    }
+
+    var loggedTypeFailures = {};
+    var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+
+    function setCurrentlyValidatingElement(element) {
+      {
+        if (element) {
+          var owner = element._owner;
+          var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+          ReactDebugCurrentFrame.setExtraStackFrame(stack);
+        } else {
+          ReactDebugCurrentFrame.setExtraStackFrame(null);
+        }
+      }
+    }
+
+    function checkPropTypes(typeSpecs, values, location, componentName, element) {
+      {
+        var has = Function.call.bind(Object.prototype.hasOwnProperty);
+
+        for (var typeSpecName in typeSpecs) {
+          if (has(typeSpecs, typeSpecName)) {
+            var error$1 = void 0;
+
+            try {
+              if (typeof typeSpecs[typeSpecName] !== 'function') {
+                var err = Error((componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + _typeof(typeSpecs[typeSpecName]) + '`.' + 'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.');
+                err.name = 'Invariant Violation';
+                throw err;
+              }
+
+              error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
+            } catch (ex) {
+              error$1 = ex;
+            }
+
+            if (error$1 && !(error$1 instanceof Error)) {
+              setCurrentlyValidatingElement(element);
+              error('%s: type specification of %s' + ' `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, _typeof(error$1));
+              setCurrentlyValidatingElement(null);
+            }
+
+            if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
+              loggedTypeFailures[error$1.message] = true;
+              setCurrentlyValidatingElement(element);
+              error('Failed %s type: %s', location, error$1.message);
+              setCurrentlyValidatingElement(null);
+            }
+          }
+        }
+      }
+    }
+
+    var ReactCurrentOwner = ReactSharedInternals.ReactCurrentOwner;
+    var hasOwnProperty = Object.prototype.hasOwnProperty;
+    var RESERVED_PROPS = {
+      key: true,
+      ref: true,
+      __self: true,
+      __source: true
+    };
+    var specialPropKeyWarningShown;
+    var specialPropRefWarningShown;
+    var didWarnAboutStringRefs;
+    {
+      didWarnAboutStringRefs = {};
+    }
+
+    function hasValidRef(config) {
+      {
+        if (hasOwnProperty.call(config, 'ref')) {
+          var getter = Object.getOwnPropertyDescriptor(config, 'ref').get;
+
+          if (getter && getter.isReactWarning) {
+            return false;
+          }
+        }
+      }
+      return config.ref !== undefined;
+    }
+
+    function hasValidKey(config) {
+      {
+        if (hasOwnProperty.call(config, 'key')) {
+          var getter = Object.getOwnPropertyDescriptor(config, 'key').get;
+
+          if (getter && getter.isReactWarning) {
+            return false;
+          }
+        }
+      }
+      return config.key !== undefined;
+    }
+
+    function warnIfStringRefCannotBeAutoConverted(config, self) {
+      {
+        if (typeof config.ref === 'string' && ReactCurrentOwner.current && self && ReactCurrentOwner.current.stateNode !== self) {
+          var componentName = getComponentName(ReactCurrentOwner.current.type);
+
+          if (!didWarnAboutStringRefs[componentName]) {
+            error('Component "%s" contains the string ref "%s". ' + 'Support for string refs will be removed in a future major release. ' + 'This case cannot be automatically converted to an arrow function. ' + 'We ask you to manually fix this case by using useRef() or createRef() instead. ' + 'Learn more about using refs safely here: ' + 'https://reactjs.org/link/strict-mode-string-ref', getComponentName(ReactCurrentOwner.current.type), config.ref);
+            didWarnAboutStringRefs[componentName] = true;
+          }
+        }
+      }
+    }
+
+    function defineKeyPropWarningGetter(props, displayName) {
+      {
+        var warnAboutAccessingKey = function warnAboutAccessingKey() {
+          if (!specialPropKeyWarningShown) {
+            specialPropKeyWarningShown = true;
+            error('%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+          }
+        };
+
+        warnAboutAccessingKey.isReactWarning = true;
+        Object.defineProperty(props, 'key', {
+          get: warnAboutAccessingKey,
+          configurable: true
+        });
+      }
+    }
+
+    function defineRefPropWarningGetter(props, displayName) {
+      {
+        var warnAboutAccessingRef = function warnAboutAccessingRef() {
+          if (!specialPropRefWarningShown) {
+            specialPropRefWarningShown = true;
+            error('%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+          }
+        };
+
+        warnAboutAccessingRef.isReactWarning = true;
+        Object.defineProperty(props, 'ref', {
+          get: warnAboutAccessingRef,
+          configurable: true
+        });
+      }
+    }
+
+    var ReactElement = function ReactElement(type, key, ref, self, source, owner, props) {
+      var element = {
+        $$typeof: REACT_ELEMENT_TYPE,
+        type: type,
+        key: key,
+        ref: ref,
+        props: props,
+        _owner: owner
+      };
+      {
+        element._store = {};
+        Object.defineProperty(element._store, 'validated', {
+          configurable: false,
+          enumerable: false,
+          writable: true,
+          value: false
+        });
+        Object.defineProperty(element, '_self', {
+          configurable: false,
+          enumerable: false,
+          writable: false,
+          value: self
+        });
+        Object.defineProperty(element, '_source', {
+          configurable: false,
+          enumerable: false,
+          writable: false,
+          value: source
+        });
+
+        if (Object.freeze) {
+          Object.freeze(element.props);
+          Object.freeze(element);
+        }
+      }
+      return element;
+    };
+
+    function jsxDEV(type, config, maybeKey, source, self) {
+      {
+        var propName;
+        var props = {};
+        var key = null;
+        var ref = null;
+
+        if (maybeKey !== undefined) {
+          key = '' + maybeKey;
+        }
+
+        if (hasValidKey(config)) {
+          key = '' + config.key;
+        }
+
+        if (hasValidRef(config)) {
+          ref = config.ref;
+          warnIfStringRefCannotBeAutoConverted(config, self);
+        }
+
+        for (propName in config) {
+          if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+            props[propName] = config[propName];
+          }
+        }
+
+        if (type && type.defaultProps) {
+          var defaultProps = type.defaultProps;
+
+          for (propName in defaultProps) {
+            if (props[propName] === undefined) {
+              props[propName] = defaultProps[propName];
+            }
+          }
+        }
+
+        if (key || ref) {
+          var displayName = typeof type === 'function' ? type.displayName || type.name || 'Unknown' : type;
+
+          if (key) {
+            defineKeyPropWarningGetter(props, displayName);
+          }
+
+          if (ref) {
+            defineRefPropWarningGetter(props, displayName);
+          }
+        }
+
+        return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+      }
+    }
+
+    var ReactCurrentOwner$1 = ReactSharedInternals.ReactCurrentOwner;
+    var ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
+
+    function setCurrentlyValidatingElement$1(element) {
+      {
+        if (element) {
+          var owner = element._owner;
+          var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+          ReactDebugCurrentFrame$1.setExtraStackFrame(stack);
+        } else {
+          ReactDebugCurrentFrame$1.setExtraStackFrame(null);
+        }
+      }
+    }
+
+    var propTypesMisspellWarningShown;
+    {
+      propTypesMisspellWarningShown = false;
+    }
+
+    function isValidElement(object) {
+      {
+        return _typeof(object) === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+      }
+    }
+
+    function getDeclarationErrorAddendum() {
+      {
+        if (ReactCurrentOwner$1.current) {
+          var name = getComponentName(ReactCurrentOwner$1.current.type);
+
+          if (name) {
+            return '\n\nCheck the render method of `' + name + '`.';
+          }
+        }
+
+        return '';
+      }
+    }
+
+    function getSourceInfoErrorAddendum(source) {
+      {
+        if (source !== undefined) {
+          var fileName = source.fileName.replace(/^.*[\\\/]/, '');
+          var lineNumber = source.lineNumber;
+          return '\n\nCheck your code at ' + fileName + ':' + lineNumber + '.';
+        }
+
+        return '';
+      }
+    }
+
+    var ownerHasKeyUseWarning = {};
+
+    function getCurrentComponentErrorInfo(parentType) {
+      {
+        var info = getDeclarationErrorAddendum();
+
+        if (!info) {
+          var parentName = typeof parentType === 'string' ? parentType : parentType.displayName || parentType.name;
+
+          if (parentName) {
+            info = "\n\nCheck the top-level render call using <" + parentName + ">.";
+          }
+        }
+
+        return info;
+      }
+    }
+
+    function validateExplicitKey(element, parentType) {
+      {
+        if (!element._store || element._store.validated || element.key != null) {
+          return;
+        }
+
+        element._store.validated = true;
+        var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
+
+        if (ownerHasKeyUseWarning[currentComponentErrorInfo]) {
+          return;
+        }
+
+        ownerHasKeyUseWarning[currentComponentErrorInfo] = true;
+        var childOwner = '';
+
+        if (element && element._owner && element._owner !== ReactCurrentOwner$1.current) {
+          childOwner = " It was passed a child from " + getComponentName(element._owner.type) + ".";
+        }
+
+        setCurrentlyValidatingElement$1(element);
+        error('Each child in a list should have a unique "key" prop.' + '%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
+        setCurrentlyValidatingElement$1(null);
+      }
+    }
+
+    function validateChildKeys(node, parentType) {
+      {
+        if (_typeof(node) !== 'object') {
+          return;
+        }
+
+        if (Array.isArray(node)) {
+          for (var i = 0; i < node.length; i++) {
+            var child = node[i];
+
+            if (isValidElement(child)) {
+              validateExplicitKey(child, parentType);
+            }
+          }
+        } else if (isValidElement(node)) {
+          if (node._store) {
+            node._store.validated = true;
+          }
+        } else if (node) {
+          var iteratorFn = getIteratorFn(node);
+
+          if (typeof iteratorFn === 'function') {
+            if (iteratorFn !== node.entries) {
+              var iterator = iteratorFn.call(node);
+              var step;
+
+              while (!(step = iterator.next()).done) {
+                if (isValidElement(step.value)) {
+                  validateExplicitKey(step.value, parentType);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    function validatePropTypes(element) {
+      {
+        var type = element.type;
+
+        if (type === null || type === undefined || typeof type === 'string') {
+          return;
+        }
+
+        var propTypes;
+
+        if (typeof type === 'function') {
+          propTypes = type.propTypes;
+        } else if (_typeof(type) === 'object' && (type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_MEMO_TYPE)) {
+          propTypes = type.propTypes;
+        } else {
+          return;
+        }
+
+        if (propTypes) {
+          var name = getComponentName(type);
+          checkPropTypes(propTypes, element.props, 'prop', name, element);
+        } else if (type.PropTypes !== undefined && !propTypesMisspellWarningShown) {
+          propTypesMisspellWarningShown = true;
+
+          var _name = getComponentName(type);
+
+          error('Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?', _name || 'Unknown');
+        }
+
+        if (typeof type.getDefaultProps === 'function' && !type.getDefaultProps.isReactClassApproved) {
+          error('getDefaultProps is only used on classic React.createClass ' + 'definitions. Use a static property named `defaultProps` instead.');
+        }
+      }
+    }
+
+    function validateFragmentProps(fragment) {
+      {
+        var keys = Object.keys(fragment.props);
+
+        for (var i = 0; i < keys.length; i++) {
+          var key = keys[i];
+
+          if (key !== 'children' && key !== 'key') {
+            setCurrentlyValidatingElement$1(fragment);
+            error('Invalid prop `%s` supplied to `React.Fragment`. ' + 'React.Fragment can only have `key` and `children` props.', key);
+            setCurrentlyValidatingElement$1(null);
+            break;
+          }
+        }
+
+        if (fragment.ref !== null) {
+          setCurrentlyValidatingElement$1(fragment);
+          error('Invalid attribute `ref` supplied to `React.Fragment`.');
+          setCurrentlyValidatingElement$1(null);
+        }
+      }
+    }
+
+    function jsxWithValidation(type, props, key, isStaticChildren, source, self) {
+      {
+        var validType = isValidElementType(type);
+
+        if (!validType) {
+          var info = '';
+
+          if (type === undefined || _typeof(type) === 'object' && type !== null && Object.keys(type).length === 0) {
+            info += ' You likely forgot to export your component from the file ' + "it's defined in, or you might have mixed up default and named imports.";
+          }
+
+          var sourceInfo = getSourceInfoErrorAddendum(source);
+
+          if (sourceInfo) {
+            info += sourceInfo;
+          } else {
+            info += getDeclarationErrorAddendum();
+          }
+
+          var typeString;
+
+          if (type === null) {
+            typeString = 'null';
+          } else if (Array.isArray(type)) {
+            typeString = 'array';
+          } else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
+            typeString = "<" + (getComponentName(type.type) || 'Unknown') + " />";
+            info = ' Did you accidentally export a JSX literal instead of a component?';
+          } else {
+            typeString = _typeof(type);
+          }
+
+          error('React.jsx: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', typeString, info);
+        }
+
+        var element = jsxDEV(type, props, key, source, self);
+
+        if (element == null) {
+          return element;
+        }
+
+        if (validType) {
+          var children = props.children;
+
+          if (children !== undefined) {
+            if (isStaticChildren) {
+              if (Array.isArray(children)) {
+                for (var i = 0; i < children.length; i++) {
+                  validateChildKeys(children[i], type);
+                }
+
+                if (Object.freeze) {
+                  Object.freeze(children);
+                }
+              } else {
+                error('React.jsx: Static children should always be an array. ' + 'You are likely explicitly calling React.jsxs or React.jsxDEV. ' + 'Use the Babel transform instead.');
+              }
+            } else {
+              validateChildKeys(children, type);
+            }
+          }
+        }
+
+        if (type === exports.Fragment) {
+          validateFragmentProps(element);
+        } else {
+          validatePropTypes(element);
+        }
+
+        return element;
+      }
+    }
+
+    function jsxWithValidationStatic(type, props, key) {
+      {
+        return jsxWithValidation(type, props, key, true);
+      }
+    }
+
+    function jsxWithValidationDynamic(type, props, key) {
+      {
+        return jsxWithValidation(type, props, key, false);
+      }
+    }
+
+    var jsx = jsxWithValidationDynamic;
+    var jsxs = jsxWithValidationStatic;
+    exports.jsx = jsx;
+    exports.jsxs = jsxs;
+  })();
+}
+
+/***/ }),
+
 /***/ "./node_modules/react/cjs/react.development.js":
 /*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
@@ -2064,6 +3081,21 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react/jsx-runtime.js":
+/*!*******************************************!*\
+  !*** ./node_modules/react/jsx-runtime.js ***!
+  \*******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react-jsx-runtime.development.js */ "./node_modules/react/cjs/react-jsx-runtime.development.js");
+}
+
+/***/ }),
+
 /***/ "./node_modules/scheduler/cjs/scheduler-tracing.development.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/scheduler/cjs/scheduler-tracing.development.js ***!
@@ -3065,11 +4097,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _views_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/header */ "./src/components/main_jsPage/views/header.jsx");
-/* harmony import */ var _views_content1__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/content1 */ "./src/components/main_jsPage/views/content1.jsx");
-/* harmony import */ var _css_styleMain_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../css/styleMain.css */ "./src/css/styleMain.css");
-/* harmony import */ var _css_styleMain_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_css_styleMain_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _views_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/header */ "./src/components/main_jsPage/views/header.jsx");
+/* harmony import */ var _views_content1__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/content1 */ "./src/components/main_jsPage/views/content1.jsx");
+/* harmony import */ var _css_styleMain_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../css/styleMain.css */ "./src/css/styleMain.css");
+/* harmony import */ var _css_styleMain_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_css_styleMain_css__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3091,6 +4124,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -3111,12 +4145,14 @@ var ContentArea1App = /*#__PURE__*/function (_React$Component) {
   _createClass(ContentArea1App, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_views_header__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_views_content1__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_header__WEBPACK_IMPORTED_MODULE_2__["default"], {}, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_content1__WEBPACK_IMPORTED_MODULE_3__["default"], {}, void 0)]
+      }, void 0);
     }
   }]);
 
   return ContentArea1App;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ContentArea1App);
 
@@ -3133,6 +4169,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3155,6 +4192,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+
+
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var ContentArea1 = /*#__PURE__*/function (_React$Component) {
@@ -3171,121 +4210,243 @@ var ContentArea1 = /*#__PURE__*/function (_React$Component) {
   _createClass(ContentArea1, [{
     key: "render",
     value: function render() {
-      return React.createElement(React.Fragment, null, React.createElement("div", {
-        style: {
-          textAlign: "left"
-        }
-      }, React.createElement("div", null, React.createElement("fieldset", {
-        className: "css-width css-border-style"
-      }, React.createElement("legend", null, "JavaScript"), React.createElement("a", {
-        name: "html"
-      }), React.createElement("ul", null, React.createElement("li", null, "ES2015(ES6)\u3068\u306F"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("div", null, React.createElement("span", null, "ECMAScript\u306FJavaScript\u306E\u4E2D\u6838\u4ED5\u69D8\u3092\u629C\u304D\u51FA\u3057\u3066\u6A19\u6E96\u5316\u3057\u305F\u3082\u306E", React.createElement("br", null), "\u958B\u767A\u5F53\u521D\u306EJavascript\u306F\u3001\u30D6\u30E9\u30A6\u30B6\u306B\u3088\u308B\u72EC\u81EA\u306E\u62E1\u5F35\u304C\u591A\u304F\u3001\u4E92\u63DB\u6027\u304C\u4F4E\u304B\u3063\u305F\u305F\u3081\u3001", React.createElement("br", null), "Ecma International\u304C\u4E2D\u5FC3\u3068\u306A\u308AECMAScript\u304C\u958B\u767A\u3055\u308C\u305F"), React.createElement("div", null, "[\u516C\u5F0F\u30B5\u30A4\u30C8]", React.createElement("a", {
-        href: "http://www.ecma-international.org/ecma-262/6.0/index.html",
-        target: "_blank"
-      }, "http://www.ecma-international.org/ecma-262/6.0/index.html"))), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("li", null, "ES2015\u306E\u5BFE\u5FDC\u72B6\u6CC1"), React.createElement("a", {
-        href: "http://kangax.github.io/compat-table/es6/",
-        target: "_blank"
-      }, "\u53C2\u8003URL"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("li", null, "\u4F55\u6545ES2015\u3067\u66F8\u304F\u306E\u304B"), React.createElement("div", {
-        className: "css-li-bef"
-      }, React.createElement("li", null, "\u4FBF\u5229\u306A\u6A5F\u80FD\u3001\u69CB\u6587\u304C\u8FFD\u52A0\u3055\u308C\u3001\u5F93\u6765\u3088\u308A\u7C21\u6F54\u304B\u3064\u660E\u77AD\u306A\u69CB\u6587\u3067\u8A18\u8FF0\u3067\u304D\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u304B\u3089\u3002")), React.createElement("div", {
-        className: "css-li-bef"
-      }, React.createElement("li", null, "\u4E3B\u8981\u306A\u6A5F\u80FD\u3001\u69CB\u6587\u3092\u899A\u3048\u308B\u7A0B\u5EA6\u306A\u3089\u5B66\u7FD2\u30B3\u30B9\u30C8\u306F\u305D\u3053\u307E\u3067\u9AD8\u304F\u306A\u3044\u304B\u3089\u3002")), React.createElement("div", {
-        className: "css-li-bef"
-      }, React.createElement("li", null, "\u30D5\u30EC\u30FC\u30E0\u30EF\u30FC\u30AF\u7B49\u3068\u9055\u3063\u3066\u3059\u3050\u306B\u5EC3\u308C\u308B\u3082\u306E\u3067\u306F\u306A\u3044\u304B\u3089\u3002")), React.createElement("div", {
-        className: "css-li-bef"
-      }, React.createElement("li", null, "ES2015\u3067\u8A18\u8FF0\u3055\u308C\u3066\u3044\u308B\u30B3\u30FC\u30C9\u3092\u7406\u89E3\u3059\u308B\u305F\u3081\u3002")), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("li", null, "ES2015\u3067\u8FFD\u52A0\u3055\u308C\u305F\u6A5F\u80FD\u3001\u69CB\u6587"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("li", null, "DOM\u52D5\u7684\u751F\u6210"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("div", null, React.createElement("a", {
-        href: "https://developer.mozilla.org/ja/docs/Web/API/Document/createElement",
-        target: "_blank"
-      }, "document.createElement \u306B\u3064\u3044\u3066"), "(\u5916\u90E8URL)"), React.createElement("pre", null, React.createElement("code", null, "var element = document.createElement(\"div\");"), React.createElement("code", null, "element.id = \"id\";"), React.createElement("code", null, "element.innerHTML = \"hogehoge\";"), React.createElement("code", null, "element.style.backgroundColor = 'red';"), React.createElement("code", null, "var objBody = document.getElementsByTagName(\"body\").item(0);"), React.createElement("code", null, "// body\u8981\u7D20\u306Bdiv\u30A8\u30EC\u30E1\u30F3\u30C8\u3092\u8FFD\u52A0 objBody.appendChild(element);")), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("li", null, "CSS\u306Eclass\u3092\u5DEE\u3057\u66FF\u3048"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("h2", null, "JavaScript\u306E\u95A2\u6570\u7A2E\u985E"), React.createElement("li", null, "\u7121\u540D\u95A2\u6570"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("li", null, "\u5373\u6642\u95A2\u6570"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("li", null, "\u30AF\u30ED\u30FC\u30B8\u30E3"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("h2", null, "\u5404\u30E9\u30A4\u30D6\u30E9\u30EA\u3001\u30D5\u30EC\u30FC\u30E0\u30EF\u30FC\u30AF"), React.createElement("li", null, "JQuery\u3001JqueyUI"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("pre", null, "[\u516C\u5F0F\u30B5\u30A4\u30C8]", React.createElement("a", {
-        href: "https://code.jquery.com/",
-        target: "_blank"
-      }, "https://code.jquery.com/")), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("li", null, "Angular JS"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("pre", null, "[\u516C\u5F0F\u30B5\u30A4\u30C8]", React.createElement("a", {
-        href: "https://angular.jp/",
-        target: "_blank"
-      }, "https://angular.jp/")), React.createElement("li", null, "knock out JS"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("pre", null, "[\u516C\u5F0F\u30B5\u30A4\u30C8]", React.createElement("a", {
-        href: "http://kojs.sukobuto.com/docs/introduction",
-        target: "_blank"
-      }, "http://kojs.sukobuto.com/docs/introduction")), React.createElement("li", null, "i18next : \u30B5\u30A4\u30C8\u306E\u56FD\u969B\u5316\u5BFE\u5FDC"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("pre", null, "[\u516C\u5F0F\u30B5\u30A4\u30C8]", React.createElement("a", {
-        href: "https://www.i18next.com/",
-        target: "_blank"
-      }, "https://www.i18next.com/")), React.createElement("li", null, "npm JS"), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("pre", null, "[\u516C\u5F0F\u30B5\u30A4\u30C8]", React.createElement("a", {
-        href: "https://docs.npmjs.com/",
-        target: "_blank"
-      }, "https://docs.npmjs.com/")), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("h2", null, "JSON\u6587\u5B57\u5217\u3068JSON\u6574\u5F62\u306B\u3064\u3044\u3066"), React.createElement("li", null, "JSON\u306E\u53D6\u308A\u6271\u3044"), React.createElement("div", null, React.createElement("input", {
-        type: "text",
-        className: "json",
-        style: {
-          width: "500px"
-        },
-        placeholder: "{\"key1\":\"\u30C6\u30AD\u30B9\u30C81\",\"key2\":\"\u30C6\u30AD\u30B9\u30C82\",\"key3\":[{\"testKey1\":\"message\"}]}"
-      })), React.createElement("div", null, React.createElement("button", {
-        id: "ID_BTN_JSON"
-      }, "JSON\u6574\u5F62")), React.createElement("div", null, React.createElement("textarea", {
-        className: "result",
-        rows: "10",
-        cols: "70",
-        placeholder: "{\"key1\":\"\u30C6\u30AD\u30B9\u30C81\"}"
-      })), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("div", {
-        className: "css-sparator"
-      }), React.createElement("h2", null, "Base64\u5909\u63DB"), React.createElement("input", {
-        type: "text",
-        id: "id_1"
-      }), React.createElement("input", {
-        type: "button",
-        id: "id_convert_btob_ja",
-        value: "\u30A8\u30F3\u30B3\u30FC\u30C9\u5909\u63DB"
-      }), React.createElement("div", {
-        id: "result1"
-      }), React.createElement("input", {
-        type: "text",
-        id: "id_2"
-      }), React.createElement("input", {
-        type: "button",
-        id: "id_convert_atob_ja",
-        value: "\u30C7\u30B3\u30FC\u30C9\u5909\u63DB"
-      }), React.createElement("div", {
-        id: "result2"
-      }))))));
+      return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({
+          style: {
+            textAlign: "left"
+          }
+        }, {
+          children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("fieldset", Object.assign({
+              className: "css-width css-border-style"
+            }, {
+              children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("legend", {
+                children: "JavaScript"
+              }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+                name: "html"
+              }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
+                children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "ES2015(ES6)\u3068\u306F"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                  children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
+                    children: ["ECMAScript\u306FJavaScript\u306E\u4E2D\u6838\u4ED5\u69D8\u3092\u629C\u304D\u51FA\u3057\u3066\u6A19\u6E96\u5316\u3057\u305F\u3082\u306E", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}, void 0), "\u958B\u767A\u5F53\u521D\u306EJavascript\u306F\u3001\u30D6\u30E9\u30A6\u30B6\u306B\u3088\u308B\u72EC\u81EA\u306E\u62E1\u5F35\u304C\u591A\u304F\u3001\u4E92\u63DB\u6027\u304C\u4F4E\u304B\u3063\u305F\u305F\u3081\u3001", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}, void 0), "Ecma International\u304C\u4E2D\u5FC3\u3068\u306A\u308AECMAScript\u304C\u958B\u767A\u3055\u308C\u305F"]
+                  }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    children: ["[\u516C\u5F0F\u30B5\u30A4\u30C8]", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", Object.assign({
+                      href: "http://www.ecma-international.org/ecma-262/6.0/index.html",
+                      target: "_blank"
+                    }, {
+                      children: "http://www.ecma-international.org/ecma-262/6.0/index.html"
+                    }), void 0)]
+                  }, void 0)]
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "ES2015\u306E\u5BFE\u5FDC\u72B6\u6CC1"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", Object.assign({
+                  href: "http://kangax.github.io/compat-table/es6/",
+                  target: "_blank"
+                }, {
+                  children: "\u53C2\u8003URL"
+                }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "\u4F55\u6545ES2015\u3067\u66F8\u304F\u306E\u304B"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({
+                  className: "css-li-bef"
+                }, {
+                  children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                    children: "\u4FBF\u5229\u306A\u6A5F\u80FD\u3001\u69CB\u6587\u304C\u8FFD\u52A0\u3055\u308C\u3001\u5F93\u6765\u3088\u308A\u7C21\u6F54\u304B\u3064\u660E\u77AD\u306A\u69CB\u6587\u3067\u8A18\u8FF0\u3067\u304D\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u304B\u3089\u3002"
+                  }, void 0)
+                }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({
+                  className: "css-li-bef"
+                }, {
+                  children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                    children: "\u4E3B\u8981\u306A\u6A5F\u80FD\u3001\u69CB\u6587\u3092\u899A\u3048\u308B\u7A0B\u5EA6\u306A\u3089\u5B66\u7FD2\u30B3\u30B9\u30C8\u306F\u305D\u3053\u307E\u3067\u9AD8\u304F\u306A\u3044\u304B\u3089\u3002"
+                  }, void 0)
+                }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({
+                  className: "css-li-bef"
+                }, {
+                  children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                    children: "\u30D5\u30EC\u30FC\u30E0\u30EF\u30FC\u30AF\u7B49\u3068\u9055\u3063\u3066\u3059\u3050\u306B\u5EC3\u308C\u308B\u3082\u306E\u3067\u306F\u306A\u3044\u304B\u3089\u3002"
+                  }, void 0)
+                }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({
+                  className: "css-li-bef"
+                }, {
+                  children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                    children: "ES2015\u3067\u8A18\u8FF0\u3055\u308C\u3066\u3044\u308B\u30B3\u30FC\u30C9\u3092\u7406\u89E3\u3059\u308B\u305F\u3081\u3002"
+                  }, void 0)
+                }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "ES2015\u3067\u8FFD\u52A0\u3055\u308C\u305F\u6A5F\u80FD\u3001\u69CB\u6587"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "DOM\u52D5\u7684\u751F\u6210"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                  children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", Object.assign({
+                    href: "https://developer.mozilla.org/ja/docs/Web/API/Document/createElement",
+                    target: "_blank"
+                  }, {
+                    children: "document.createElement \u306B\u3064\u3044\u3066"
+                  }), void 0), "(\u5916\u90E8URL)"]
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("pre", {
+                  children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("code", {
+                    children: "var element = document.createElement(\"div\");"
+                  }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("code", {
+                    children: "element.id = \"id\";"
+                  }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("code", {
+                    children: "element.innerHTML = \"hogehoge\";"
+                  }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("code", {
+                    children: "element.style.backgroundColor = 'red';"
+                  }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("code", {
+                    children: "var objBody = document.getElementsByTagName(\"body\").item(0);"
+                  }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("code", {
+                    children: "// body\u8981\u7D20\u306Bdiv\u30A8\u30EC\u30E1\u30F3\u30C8\u3092\u8FFD\u52A0 objBody.appendChild(element);"
+                  }, void 0)]
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "CSS\u306Eclass\u3092\u5DEE\u3057\u66FF\u3048"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
+                  children: "JavaScript\u306E\u95A2\u6570\u7A2E\u985E"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "\u7121\u540D\u95A2\u6570"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "\u5373\u6642\u95A2\u6570"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "\u30AF\u30ED\u30FC\u30B8\u30E3"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
+                  children: "\u5404\u30E9\u30A4\u30D6\u30E9\u30EA\u3001\u30D5\u30EC\u30FC\u30E0\u30EF\u30FC\u30AF"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "JQuery\u3001JqueyUI"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("pre", {
+                  children: ["[\u516C\u5F0F\u30B5\u30A4\u30C8]", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", Object.assign({
+                    href: "https://code.jquery.com/",
+                    target: "_blank"
+                  }, {
+                    children: "https://code.jquery.com/"
+                  }), void 0)]
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "Angular JS"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("pre", {
+                  children: ["[\u516C\u5F0F\u30B5\u30A4\u30C8]", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", Object.assign({
+                    href: "https://angular.jp/",
+                    target: "_blank"
+                  }, {
+                    children: "https://angular.jp/"
+                  }), void 0)]
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "knock out JS"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("pre", {
+                  children: ["[\u516C\u5F0F\u30B5\u30A4\u30C8]", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", Object.assign({
+                    href: "http://kojs.sukobuto.com/docs/introduction",
+                    target: "_blank"
+                  }, {
+                    children: "http://kojs.sukobuto.com/docs/introduction"
+                  }), void 0)]
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "i18next : \u30B5\u30A4\u30C8\u306E\u56FD\u969B\u5316\u5BFE\u5FDC"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("pre", {
+                  children: ["[\u516C\u5F0F\u30B5\u30A4\u30C8]", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", Object.assign({
+                    href: "https://www.i18next.com/",
+                    target: "_blank"
+                  }, {
+                    children: "https://www.i18next.com/"
+                  }), void 0)]
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "npm JS"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("pre", {
+                  children: ["[\u516C\u5F0F\u30B5\u30A4\u30C8]", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", Object.assign({
+                    href: "https://docs.npmjs.com/",
+                    target: "_blank"
+                  }, {
+                    children: "https://docs.npmjs.com/"
+                  }), void 0)]
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
+                  children: "JSON\u6587\u5B57\u5217\u3068JSON\u6574\u5F62\u306B\u3064\u3044\u3066"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: "JSON\u306E\u53D6\u308A\u6271\u3044"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                    type: "text",
+                    className: "json",
+                    style: {
+                      width: "500px"
+                    },
+                    placeholder: "{\"key1\":\"\u30C6\u30AD\u30B9\u30C81\",\"key2\":\"\u30C6\u30AD\u30B9\u30C82\",\"key3\":[{\"testKey1\":\"message\"}]}"
+                  }, void 0)
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", Object.assign({
+                    id: "ID_BTN_JSON"
+                  }, {
+                    children: "JSON\u6574\u5F62"
+                  }), void 0)
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("textarea", {
+                    className: "result",
+                    rows: "10",
+                    cols: "70",
+                    placeholder: "{\"key1\":\"\u30C6\u30AD\u30B9\u30C81\"}"
+                  }, void 0)
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  className: "css-sparator"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
+                  children: "Base64\u5909\u63DB"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                  type: "text",
+                  id: "id_1"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                  type: "button",
+                  id: "id_convert_btob_ja",
+                  value: "\u30A8\u30F3\u30B3\u30FC\u30C9\u5909\u63DB"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  id: "result1"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                  type: "text",
+                  id: "id_2"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                  type: "button",
+                  id: "id_convert_atob_ja",
+                  value: "\u30C7\u30B3\u30FC\u30C9\u5909\u63DB"
+                }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                  id: "result2"
+                }, void 0)]
+              }, void 0)]
+            }), void 0)
+          }, void 0)
+        }), void 0)
+      }, void 0);
     }
   }]);
 
@@ -3307,6 +4468,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3329,6 +4491,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+
+
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var ContentArea1Header = /*#__PURE__*/function (_React$Component) {
@@ -3345,7 +4509,13 @@ var ContentArea1Header = /*#__PURE__*/function (_React$Component) {
   _createClass(ContentArea1Header, [{
     key: "render",
     value: function render() {
-      return React.createElement(React.Fragment, null, React.createElement("header", null, React.createElement("h2", null, "JavaScript\u306B\u3064\u3044\u3066"), React.createElement("hr", null)));
+      return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("header", {
+          children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
+            children: "JavaScript\u306B\u3064\u3044\u3066"
+          }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("hr", {}, void 0)]
+        }, void 0)
+      }, void 0);
     }
   }]);
 
@@ -3883,13 +5053,13 @@ var __webpack_exports__ = {};
   !*** ./src/components/main_jsPage/index.js ***!
   \*********************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App */ "./src/components/main_jsPage/App.jsx");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_1__["default"], null), document.querySelector('#content_main_js'));
+react_dom__WEBPACK_IMPORTED_MODULE_2__.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_App__WEBPACK_IMPORTED_MODULE_1__["default"], {}, void 0), document.querySelector('#content_main_js'));
 })();
 
 /******/ })()
