@@ -20,14 +20,15 @@ npm i -D webpack-watched-glob-entries-plugin
 npm i -D clean-webpack-plugin
 
 
-# typescriptのコマンドが使えない時
+# typescript
+## typescriptのコマンドが使えない時
 
 ```vim
 npm i typescript -g
 tsc -v
 ```
 
-### 【コマンド】
+#### 【コマンド】
 ```vim
 c:\project> tsc -p d:\project
 ```
@@ -36,22 +37,25 @@ c:\project> tsc -p d:\project
 tsc  ./src/types/user.ts
 ```
 
-### 【説明】
+#### 【説明】
 > このコマンドを実行すると、TypeScriptプロジェクト配下に存在するすべてのファイルをコンパイルします。  
 > オプションには「-p」と「TypeScriptプロジェクトのルートディレクトリ(tsconfig.jsonが配置される)」を指定します。  
 
-### 【コマンド】
+#### 【コマンド】
 ```vim
 c:\project> tsc -p d:\project -w
 ```
 
-### 【説明】
+#### 【説明】
 > 「-w」を付けた場合、ファイルの変更を監視し自動コンパイルします。  
 
-### 【実行結果】
+#### 【実行結果】
 > c:\project\tsconfing.jsonのコンパイル設定でコンパイル  
 > c:\project\app1.ts ⇒ファイル変更の監視対象。変更があれば自動コンパイル。  
 > c:\project\sub\app1.ts ⇒ファイル変更の監視対象。変更があれば自動コンパイル。  
 
 > 監視を終了するにはコマンドプロンプトを閉じるか、VSCodeで実行している場合は、  
 > コマンドパレットから「タスク：実行中のタスクの終了」を選択します。  
+
+## 参考
+[https://future-architect.github.io/typescript-guide/react.html](https://future-architect.github.io/typescript-guide/react.html)

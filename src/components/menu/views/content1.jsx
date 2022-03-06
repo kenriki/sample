@@ -7,6 +7,9 @@ class MenuContent1 extends React.Component {
       <>
         <div className="css-menu-wrap">
           <div>
+            <a href="https://www.slideshare.net/secret/7NCg0kSbtCIiCY">Tymeleafの確認資料(1)</a>
+          </div>
+          <div>
             <a href="https://www.slideshare.net/secret/sg65BRa2DltGze">Python開発環境導入資料</a>
           </div>
           <div>
@@ -24,8 +27,8 @@ class MenuContent1 extends React.Component {
             <script async src="https://platform.twitter.com/widgets.js"></script>
           </div>
           <div>
-            <div className="line-it-button" data-lang="ja" data-type="like"
-              data-url="http://rikigigasu.blog.fc2.com/" className="blockScreenOff">
+            <div className="line-it-button blockScreenOff" data-lang="ja" data-type="like"
+              data-url="http://rikigigasu.blog.fc2.com/">
             </div>
             <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async"
               defer="defer"></script>
