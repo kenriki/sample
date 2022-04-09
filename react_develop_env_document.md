@@ -199,7 +199,29 @@ $ npm install
 > GitHub Pagesは特定なBranchを使って静的なファイルをサービスします。
 したがってbuildフォルダのためだけのBranchを作る必要があります。
 次のコマンドを実行してbuildフォルダだけ新しいBranchにアップロードします。
+### package.json  
+```json
+・
+・
+・
+  "scripts": {
+    ・
+    ・
+    "postbuild": "cp build/index.html build/404.html"  // ←これを追加しておくこと
+  },
+・
+・
+・
+
+```
+
+> その後、以下コマンドを実施  
 
 ```vim
 git subtree push --prefix build/ origin gh-pages
 ```
+
+
+# テストツール  
+[https://ja.reactjs.org/docs/test-utils.html](https://ja.reactjs.org/docs/test-utils.html)
+[https://jestjs.io/docs/tutorial-react](https://jestjs.io/docs/tutorial-react)
