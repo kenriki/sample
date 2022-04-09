@@ -223,5 +223,5 @@ git subtree push --prefix build/ origin gh-pages
 
 
 # テストツール  
-[https://ja.reactjs.org/docs/test-utils.html](https://ja.reactjs.org/docs/test-utils.html)
+[https://ja.reactjs.org/docs/test-utils.html](https://ja.reactjs.org/docs/test-utils.html)  
 [https://jestjs.io/docs/tutorial-react](https://jestjs.io/docs/tutorial-react)
